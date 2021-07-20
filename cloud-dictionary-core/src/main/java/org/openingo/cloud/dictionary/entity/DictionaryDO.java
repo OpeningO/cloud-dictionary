@@ -29,16 +29,17 @@ package org.openingo.cloud.dictionary.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import org.apache.ibatis.type.EnumTypeHandler;
 import org.openingo.boot.mybatisplus.extension.ModelX;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.openingo.cloud.dictionary.enums.DictionaryTypeEnum;
 
 /**
  * <p>
@@ -92,8 +93,10 @@ public class DictionaryDO extends ModelX<DictionaryDO> {
 
     /**
      * 类型，1=dictionary，2=tag
+     * @see DictionaryTypeEnum
      */
-    private Integer type;
+    @TableField(typeHandler = EnumTypeHandler.class)
+    private DictionaryTypeEnum type;
 
     /**
      * 扩展信息
