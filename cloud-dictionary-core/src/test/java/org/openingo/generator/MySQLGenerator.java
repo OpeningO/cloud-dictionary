@@ -62,7 +62,7 @@ public class MySQLGenerator {
         gc.setAuthor("Qicz");
         gc.setActiveRecord(true);
         gc.setOpen(false);
-        // gc.setFileOverride(true); // 重写生成时覆盖旧文件
+        gc.setFileOverride(true); // 重写生成时覆盖旧文件
         gc.setEntityName("%sDO");// Entity后缀
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         // gc.setDateType(DateType.TIME_PACK);
@@ -79,7 +79,7 @@ public class MySQLGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("cloud.dictionary");
+        pc.setModuleName("cloud.dictionary.core");
         pc.setParent("org.openingo");
 
         mpg.setPackageInfo(pc);

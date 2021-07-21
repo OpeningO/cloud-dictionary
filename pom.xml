@@ -34,7 +34,7 @@
     <parent>
         <groupId>org.openingo.boot</groupId>
         <artifactId>openingo-boot-dependencies</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
 
     <groupId>org.openingo</groupId>
@@ -42,8 +42,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>cloud-dictionary</module>
+        <module>cloud-dictionary-api</module>
         <module>cloud-dictionary-core</module>
+        <module>cloud-dictionary</module>
     </modules>
 
     <properties>
@@ -58,7 +59,7 @@
         <dependencies>
             <dependency>
                 <groupId>org.openingo</groupId>
-                <artifactId>cloud-dictionary</artifactId>
+                <artifactId>cloud-dictionary-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -66,6 +67,12 @@
                 <artifactId>cloud-dictionary-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.openingo</groupId>
+                <artifactId>cloud-dictionary</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

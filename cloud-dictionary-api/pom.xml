@@ -36,16 +36,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-dictionary</artifactId>
+    <artifactId>cloud-dictionary-api</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.openingo</groupId>
-            <artifactId>cloud-dictionary-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.openingo</groupId>
-            <artifactId>cloud-dictionary-core</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 
