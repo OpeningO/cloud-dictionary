@@ -25,16 +25,23 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.core.enums;
+package org.openingo.cloud.dictionary;
 
-import java.util.stream.Stream;
+import org.openingo.spring.boot.SpringApplicationX;
+import org.openingo.spring.boot.annotation.EnableExtension;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * EnumInterface
+ * App
  *
  * @author Qicz
- * @since 2021/7/20 18:25
+ * @since 2021/7/20 17:40
  */
-public interface EnumInterface<E extends Enum<E>> {
+@SpringBootApplication
+@EnableExtension
+public class App {
 
+	public static void main(String[] args) {
+		SpringApplicationX.run(App.class, args);
+	}
 }

@@ -1,17 +1,14 @@
 package org.openingo.cloud.dictionary.core.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import org.openingo.boot.mybatisplus.extension.ModelX;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.openingo.boot.mybatisplus.extension.ModelX;
+import org.openingo.cloud.dictionary.enums.DictionaryTypeEnum;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -66,7 +63,7 @@ public class DictionaryDO extends ModelX<DictionaryDO> {
     /**
      * 类型，1=dictionary，2=tag
      */
-    private Integer type;
+    private DictionaryTypeEnum type;
 
     /**
      * 扩展信息

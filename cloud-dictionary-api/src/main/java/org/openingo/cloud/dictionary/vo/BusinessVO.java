@@ -33,6 +33,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -43,7 +44,7 @@ import java.util.Map;
  */
 @Data
 @ApiModel(description = "业务信息")
-public class BusinessVO {
+public class BusinessVO implements Serializable {
 
 	/**
 	 * 应用id

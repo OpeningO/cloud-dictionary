@@ -138,10 +138,11 @@ public class MySQLGenerator {
 
         //strategy.setEntityTableFieldAnnotationEnable(true);
 
+        TableFill codeFill = new TableFill("code", FieldFill.INSERT);
         TableFill createTimeFill = new TableFill("create_time", FieldFill.INSERT);
         TableFill updateTimeFill = new TableFill("update_time", FieldFill.INSERT_UPDATE);
         //
-        strategy.setTableFillList(Arrays.asList(createTimeFill, updateTimeFill));
+        strategy.setTableFillList(Arrays.asList(codeFill, createTimeFill, updateTimeFill));
 
         mpg.setStrategy(strategy);
 

@@ -43,6 +43,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.openingo</groupId>
+            <artifactId>cloud-dictionary-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>

@@ -25,9 +25,19 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.core.enums;
+package org.openingo.cloud.dictionary.enums;
 
+import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.baomidou.mybatisplus.annotation.IEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
+import org.openingo.jdkits.lang.EnumItem;
+import org.openingo.jdkits.lang.EnumKit;
+import org.openingo.jdkits.lang.StrKit;
+
+import java.io.Serializable;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * DictionaryTypeEnum
@@ -36,7 +46,12 @@ import lombok.Getter;
  * @since 2021/7/20 18:22
  */
 @Getter
-public enum DictionaryTypeEnum implements EnumInterface<DictionaryTypeEnum> {
+public enum DictionaryTypeEnum implements EnumItem<DictionaryTypeEnum> {
+
+	/**
+	 * 未知类型
+	 */
+	UNKNOWN(-1, "未知"),
 
 	/**
 	 * 词典
@@ -48,11 +63,27 @@ public enum DictionaryTypeEnum implements EnumInterface<DictionaryTypeEnum> {
 	 */
 	TAG(2, "标签");
 
-	Integer id;
-	String name;
+	@EnumValue
+	private final Integer id;
+	private final String description;
 
-	DictionaryTypeEnum(Integer id, String name) {
+	DictionaryTypeEnum(Integer id, String description) {
 		this.id = id;
-		this.name = name;
+		this.description = description;
+	}
+
+	@Override
+	public int intVal() {
+		return this.id;
+	}
+
+	@Override
+	public String strVal() {
+		return this.description;
+	}
+
+	@JsonCreator
+	public static DictionaryTypeEnum one(Integer id) {
+		return EnumKit.find(DictionaryTypeEnum.class, e -> e.id.equals(id), UNKNOWN);
 	}
 }

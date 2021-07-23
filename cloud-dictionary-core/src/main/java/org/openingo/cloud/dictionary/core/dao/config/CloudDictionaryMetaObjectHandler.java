@@ -27,20 +27,29 @@
 
 package org.openingo.cloud.dictionary.core.dao.config;
 
+import org.apache.ibatis.reflection.MetaObject;
 import org.openingo.boot.mybatisplus.config.TimeFillMetaObjectHandler;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.openingo.jdkits.hash.HashKit;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 /**
- * DaoConfiguration
+ * CloudDictionaryMetaObjectHandler
  *
  * @author Qicz
- * @since 2021/7/20 11:03
+ * @since 2021/7/23 17:21
  */
-@Configuration
-@EnableTransactionManagement
-public class DaoConfiguration {
+@Component
+public class CloudDictionaryMetaObjectHandler extends TimeFillMetaObjectHandler {
 
+	@Override
+	public void insertFill(MetaObject metaObject) {
+		super.insertFill(metaObject);
+
+		boolean hasCode = metaObject.hasGetter("code");
+		if (hasCode) {
+			metaObject.setValue("code", HashKit.generateSalt(100));
+		}
+	}
 }

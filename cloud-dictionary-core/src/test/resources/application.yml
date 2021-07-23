@@ -4,6 +4,5 @@ spring:
     username: root
     password: dbadmin
     driver-class-name: com.mysql.cj.jdbc.Driver
-
 mybatis-plus:
   type-enums-package: org.openingo.cloud.dictionary.enums

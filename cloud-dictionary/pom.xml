@@ -41,10 +41,6 @@
     <dependencies>
         <dependency>
             <groupId>org.openingo</groupId>
-            <artifactId>cloud-dictionary-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.openingo</groupId>
             <artifactId>cloud-dictionary-core</artifactId>
         </dependency>
     </dependencies>
