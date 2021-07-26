@@ -1,7 +1,7 @@
 package org.openingo.cloud.dictionary.core.service;
 
 import org.openingo.cloud.dictionary.core.entity.ApplicationDO;
-import com.baomidou.mybatisplus.extension.service.IService;
+import org.openingo.cloud.dictionary.vo.ApplicationVO;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Qicz
  * @since 2021-07-21
  */
-public interface IApplicationService extends IService<ApplicationDO> {
+public interface IApplicationService extends IBaseService<ApplicationVO, ApplicationDO> {
 
 }

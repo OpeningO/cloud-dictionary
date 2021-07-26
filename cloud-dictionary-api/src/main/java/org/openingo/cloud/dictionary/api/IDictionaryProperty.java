@@ -27,13 +27,11 @@
 
 package org.openingo.cloud.dictionary.api;
 
-import org.openingo.cloud.dictionary.vo.ApplicationVO;
-
 /**
- * IApplication
+ * IDictionaryProperty
  *
  * @author Qicz
- * @since 2021/7/21 10:09
+ * @since 2021/7/26 14:16
  */
-public interface IApplication extends BaseApi<ApplicationVO> {
+public interface IDictionaryProperty {
 }

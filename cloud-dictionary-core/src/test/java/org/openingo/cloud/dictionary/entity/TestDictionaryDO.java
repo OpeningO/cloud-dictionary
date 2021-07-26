@@ -27,18 +27,22 @@
 
 package org.openingo.cloud.dictionary.entity;
 
+import com.google.common.base.Converter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openingo.cloud.dictionary.App;
+import org.openingo.cloud.dictionary.core.converter.DictionaryConverter;
 import org.openingo.cloud.dictionary.core.entity.DictionaryDO;
 import org.openingo.cloud.dictionary.core.service.IDictionaryService;
-import org.openingo.cloud.dictionary.core.service.impl.DictionaryServiceImpl;
 import org.openingo.cloud.dictionary.enums.DictionaryTypeEnum;
+import org.openingo.cloud.dictionary.vo.DictionaryVO;
 import org.openingo.jdkits.hash.HashKit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
 
 /**
  * TestDictionaryDO
@@ -70,5 +74,21 @@ public class TestDictionaryDO {
 	@Test
 	public void getDictionary() {
 		System.out.println(dictionaryService.getById(1));
+	}
+
+	@Resource
+	DictionaryConverter dictionaryConverter;
+
+	@Test
+	public void saveDictionaryByVO() {
+		final DictionaryVO dictionaryVO = new DictionaryVO();
+		dictionaryVO.setApplicationId(123);
+		dictionaryVO.setApplicationCode(HashKit.generateSalt(30));
+		dictionaryVO.setBusinessId(123);
+		dictionaryVO.setBusinessCode(HashKit.generateSalt(30));
+		dictionaryVO.setName("one dict");
+		dictionaryVO.setType(DictionaryTypeEnum.DICTIONARY);
+
+		dictionaryService.addOrEdit(dictionaryVO);
 	}
 }

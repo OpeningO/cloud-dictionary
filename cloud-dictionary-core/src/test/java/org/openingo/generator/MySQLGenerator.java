@@ -79,7 +79,7 @@ public class MySQLGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("cloud.dictionary.core");
+        pc.setModuleName("cloud.dictionary.coreee");
         pc.setParent("org.openingo");
 
         mpg.setPackageInfo(pc);

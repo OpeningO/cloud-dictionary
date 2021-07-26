@@ -27,13 +27,13 @@
 
 package org.openingo.cloud.dictionary.api;
 
-import org.openingo.cloud.dictionary.vo.ApplicationVO;
+import org.openingo.cloud.dictionary.vo.BusinessVO;
 
 /**
- * IApplication
+ * IBusiness
  *
  * @author Qicz
- * @since 2021/7/21 10:09
+ * @since 2021/7/26 14:15
  */
-public interface IApplication extends BaseApi<ApplicationVO> {
+public interface IBusiness extends BaseApi<BusinessVO> {
 }

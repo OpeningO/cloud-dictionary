@@ -1,7 +1,7 @@
 package org.openingo.cloud.dictionary.core.service;
 
 import org.openingo.cloud.dictionary.core.entity.BusinessDO;
-import com.baomidou.mybatisplus.extension.service.IService;
+import org.openingo.cloud.dictionary.vo.BusinessVO;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Qicz
  * @since 2021-07-21
  */
-public interface IBusinessService extends IService<BusinessDO> {
+public interface IBusinessService extends IBaseService<BusinessVO, BusinessDO> {
 
 }

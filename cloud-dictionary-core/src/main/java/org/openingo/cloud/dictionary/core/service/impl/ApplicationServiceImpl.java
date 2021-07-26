@@ -3,7 +3,7 @@ package org.openingo.cloud.dictionary.core.service.impl;
 import org.openingo.cloud.dictionary.core.entity.ApplicationDO;
 import org.openingo.cloud.dictionary.core.mapper.ApplicationMapper;
 import org.openingo.cloud.dictionary.core.service.IApplicationService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.openingo.cloud.dictionary.vo.ApplicationVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2021-07-21
  */
 @Service
-public class ApplicationServiceImpl extends ServiceImpl<ApplicationMapper, ApplicationDO> implements IApplicationService {
+public class ApplicationServiceImpl extends BaseServiceImpl<ApplicationVO, ApplicationDO, ApplicationMapper> implements IApplicationService {
 
 }

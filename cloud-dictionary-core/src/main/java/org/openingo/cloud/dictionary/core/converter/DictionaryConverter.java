@@ -25,15 +25,38 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.api;
+package org.openingo.cloud.dictionary.core.converter;
 
-import org.openingo.cloud.dictionary.vo.ApplicationVO;
+import com.google.common.base.Converter;
+import org.openingo.cloud.dictionary.core.entity.DictionaryDO;
+import org.openingo.cloud.dictionary.vo.DictionaryVO;
+import org.springframework.cglib.beans.BeanCopier;
+import org.springframework.stereotype.Component;
 
 /**
- * IApplication
+ * DictionaryConverter
  *
  * @author Qicz
- * @since 2021/7/21 10:09
+ * @since 2021/7/26 14:37
  */
-public interface IApplication extends BaseApi<ApplicationVO> {
+@Component
+public class DictionaryConverter extends Converter<DictionaryVO, DictionaryDO> {
+
+	private BeanCopier forwardCopier = BeanCopier.create(DictionaryVO.class, DictionaryDO.class, false);
+
+	private BeanCopier backwardCopier = BeanCopier.create(DictionaryDO.class, DictionaryVO.class, false);
+
+	@Override
+	protected DictionaryDO doForward(DictionaryVO dictionaryVO) {
+		final DictionaryDO dictionaryDO = new DictionaryDO();
+		this.forwardCopier.copy(dictionaryVO, dictionaryDO, null);
+		return dictionaryDO;
+	}
+
+	@Override
+	protected DictionaryVO doBackward(DictionaryDO dictionaryDO) {
+		final DictionaryVO dictionaryVO = new DictionaryVO();
+		this.backwardCopier.copy(dictionaryDO, dictionaryVO, null);
+		return dictionaryVO;
+	}
 }

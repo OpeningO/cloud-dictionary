@@ -1,7 +1,8 @@
 package org.openingo.cloud.dictionary.core.service;
 
+import org.openingo.cloud.dictionary.api.IDictionary;
 import org.openingo.cloud.dictionary.core.entity.DictionaryDO;
-import com.baomidou.mybatisplus.extension.service.IService;
+import org.openingo.cloud.dictionary.vo.DictionaryVO;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Qicz
  * @since 2021-07-21
  */
-public interface IDictionaryService extends IService<DictionaryDO> {
+public interface IDictionaryService extends IBaseService<DictionaryVO, DictionaryDO>, IDictionary {
 
 }

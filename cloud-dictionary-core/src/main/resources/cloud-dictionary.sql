@@ -48,11 +48,11 @@ CREATE TABLE `t_business` (
   `create_time` datetime NOT NULL DEFAULT current_timestamp(),
   `update_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `name` (`name`),
   UNIQUE KEY `code` (`code`),
   KEY `application_id` (`application_id`),
   KEY `application_code` (`application_code`),
-  KEY `create_time` (`create_time`)
+  KEY `create_time` (`create_time`),
+  KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='业务信息';
 
 -- ----------------------------
@@ -72,13 +72,13 @@ CREATE TABLE `t_dictionary` (
   `create_time` datetime NOT NULL DEFAULT current_timestamp(),
   `update_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `name` (`name`),
   UNIQUE KEY `code` (`code`),
   KEY `application_id` (`application_id`),
   KEY `application_code` (`application_code`),
   KEY `business_id` (`business_id`),
   KEY `business_code` (`business_code`),
-  KEY `create_time` (`create_time`)
+  KEY `create_time` (`create_time`),
+  KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='词典';
 
 -- ----------------------------
@@ -91,37 +91,16 @@ CREATE TABLE `t_dictionary_property` (
   `dictionary_code` varchar(100) NOT NULL COMMENT '词典编码',
   `name` varchar(50) NOT NULL COMMENT '名称',
   `code` varchar(100) NOT NULL COMMENT '编码',
-  `property` varchar(255) NOT NULL COMMENT '属性',
-  `create_time` datetime NOT NULL DEFAULT current_timestamp(),
-  `update_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `code` (`code`),
-  KEY `dictionary_id` (`dictionary_id`),
-  KEY `dictionary_code` (`dictionary_code`),
-  KEY `create_time` (`create_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='词典属性';
-
--- ----------------------------
--- Table structure for t_dictionary_value
--- ----------------------------
-DROP TABLE IF EXISTS `t_dictionary_value`;
-CREATE TABLE `t_dictionary_value` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `dictionary_id` int(10) NOT NULL COMMENT '词典id',
-  `dictionary_code` varchar(100) NOT NULL COMMENT '词典编码',
-  `name` varchar(50) NOT NULL COMMENT '名称',
-  `code` varchar(100) NOT NULL COMMENT '编码',
-  `value` varchar(255) DEFAULT NULL,
+  `value` varchar(255) NOT NULL COMMENT '取值',
   `extra` tinytext DEFAULT NULL COMMENT '扩展信息',
   `create_time` datetime NOT NULL DEFAULT current_timestamp(),
   `update_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `name` (`name`),
   UNIQUE KEY `code` (`code`),
   KEY `dictionary_id` (`dictionary_id`),
   KEY `dictionary_code` (`dictionary_code`),
-  KEY `create_time` (`create_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='词典取值';
+  KEY `create_time` (`create_time`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='词典属性';
 
 SET FOREIGN_KEY_CHECKS = 1;

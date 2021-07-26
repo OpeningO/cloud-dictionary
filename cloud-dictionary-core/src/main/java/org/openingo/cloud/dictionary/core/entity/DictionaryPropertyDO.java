@@ -2,7 +2,6 @@ package org.openingo.cloud.dictionary.core.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -23,7 +22,6 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
 @TableName("t_dictionary_property")
 public class DictionaryPropertyDO extends ModelX<DictionaryPropertyDO> {
 
@@ -32,6 +30,16 @@ public class DictionaryPropertyDO extends ModelX<DictionaryPropertyDO> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
+    /**
+     * 父节点id
+     */
+    private Integer parentId;
+
+    /**
+     * 父节点code
+     */
+    private String parentCode;
 
     /**
      * 词典id
@@ -51,12 +59,18 @@ public class DictionaryPropertyDO extends ModelX<DictionaryPropertyDO> {
     /**
      * 编码
      */
+    @TableField(fill = FieldFill.INSERT)
     private String code;
 
     /**
-     * 属性
+     * 取值
      */
-    private String property;
+    private String value;
+
+    /**
+     * 扩展信息
+     */
+    private String extra;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

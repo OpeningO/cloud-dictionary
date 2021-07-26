@@ -3,7 +3,7 @@ package org.openingo.cloud.dictionary.core.service.impl;
 import org.openingo.cloud.dictionary.core.entity.DictionaryDO;
 import org.openingo.cloud.dictionary.core.mapper.DictionaryMapper;
 import org.openingo.cloud.dictionary.core.service.IDictionaryService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.openingo.cloud.dictionary.vo.DictionaryVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2021-07-21
  */
 @Service
-public class DictionaryServiceImpl extends ServiceImpl<DictionaryMapper, DictionaryDO> implements IDictionaryService {
+public class DictionaryServiceImpl extends BaseServiceImpl<DictionaryVO, DictionaryDO, DictionaryMapper> implements IDictionaryService {
 
 }

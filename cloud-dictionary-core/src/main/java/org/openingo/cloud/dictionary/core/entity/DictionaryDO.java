@@ -20,7 +20,6 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
 @TableName("t_dictionary")
 public class DictionaryDO extends ModelX<DictionaryDO> {
 
@@ -58,6 +57,7 @@ public class DictionaryDO extends ModelX<DictionaryDO> {
     /**
      * 编码
      */
+    @TableField(fill = FieldFill.INSERT)
     private String code;
 
     /**

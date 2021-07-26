@@ -23,7 +23,6 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
 @TableName("t_application")
 public class ApplicationDO extends ModelX<ApplicationDO> {
 
@@ -41,6 +40,7 @@ public class ApplicationDO extends ModelX<ApplicationDO> {
     /**
      * 编码
      */
+    @TableField(fill = FieldFill.INSERT)
     private String code;
 
     /**

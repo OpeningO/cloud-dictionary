@@ -25,15 +25,13 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.api;
-
-import org.openingo.cloud.dictionary.vo.ApplicationVO;
+package org.openingo.cloud.dictionary.core.converter;
 
 /**
- * IApplication
+ * TODO
  *
  * @author Qicz
- * @since 2021/7/21 10:09
+ * @since 2021/7/26 17:55
  */
-public interface IApplication extends BaseApi<ApplicationVO> {
+public class BeanConverter {
 }
