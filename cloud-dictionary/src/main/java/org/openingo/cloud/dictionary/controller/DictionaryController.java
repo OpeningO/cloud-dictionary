@@ -25,36 +25,27 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.configuration;
+package org.openingo.cloud.dictionary.controller;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.annotations.Api;
+import org.openingo.cloud.dictionary.controller.base.AbstractController;
+import org.openingo.cloud.dictionary.core.service.IDictionaryService;
+import org.openingo.cloud.dictionary.vo.DictionaryVO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * SwaggerConfiguration
+ * DictionaryController
  *
  * @author Qicz
- * @since 2021/7/21 10:50
+ * @since 2021/7/27 15:37
  */
-@Configuration
-@EnableSwagger2
-public class SwaggerConfiguration {
+@RestController
+@Api(tags = "词典接入")
+@RequestMapping("dictionary")
+public class DictionaryController extends AbstractController<DictionaryVO, IDictionaryService> {
 
-	@Bean
-	public Docket createRestApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.pathMapping("/")
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("org.openingo.controller"))
-				.paths(PathSelectors.any())
-				.build().apiInfo(new ApiInfoBuilder()
-						.title("Cloud Dictionary")
-						.build());
+	public DictionaryController(IDictionaryService service) {
+		super(service);
 	}
 }

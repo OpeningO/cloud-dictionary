@@ -1,16 +1,9 @@
 package org.openingo.cloud.dictionary.core.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import org.openingo.boot.mybatisplus.extension.ModelX;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
 
 /**
  * <p>
@@ -22,14 +15,8 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("t_dictionary_property")
-public class DictionaryPropertyDO extends ModelX<DictionaryPropertyDO> {
-
-    private static final long serialVersionUID=1L;
-    
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+@TableName(value = "t_dictionary_property", autoResultMap = true)
+public class DictionaryPropertyDO extends BaseDO<DictionaryPropertyDO> {
 
     /**
      * 父节点id
@@ -50,38 +37,4 @@ public class DictionaryPropertyDO extends ModelX<DictionaryPropertyDO> {
      * 词典编码
      */
     private String dictionaryCode;
-
-    /**
-     * 名称
-     */
-    private String name;
-
-    /**
-     * 编码
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private String code;
-
-    /**
-     * 取值
-     */
-    private String value;
-
-    /**
-     * 扩展信息
-     */
-    private String extra;
-
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
-
-
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-
 }

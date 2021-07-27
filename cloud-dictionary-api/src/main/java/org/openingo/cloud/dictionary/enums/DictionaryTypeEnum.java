@@ -28,16 +28,10 @@
 package org.openingo.cloud.dictionary.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.baomidou.mybatisplus.annotation.IEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 import org.openingo.jdkits.lang.EnumItem;
 import org.openingo.jdkits.lang.EnumKit;
-import org.openingo.jdkits.lang.StrKit;
-
-import java.io.Serializable;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 /**
  * DictionaryTypeEnum

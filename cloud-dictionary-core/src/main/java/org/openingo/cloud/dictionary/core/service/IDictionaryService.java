@@ -1,7 +1,7 @@
 package org.openingo.cloud.dictionary.core.service;
 
-import org.openingo.cloud.dictionary.api.IDictionary;
 import org.openingo.cloud.dictionary.core.entity.DictionaryDO;
+import org.openingo.cloud.dictionary.core.service.base.ICloudDictionaryService;
 import org.openingo.cloud.dictionary.vo.DictionaryVO;
 
 /**
@@ -12,6 +12,6 @@ import org.openingo.cloud.dictionary.vo.DictionaryVO;
  * @author Qicz
  * @since 2021-07-21
  */
-public interface IDictionaryService extends IBaseService<DictionaryVO, DictionaryDO>, IDictionary {
+public interface IDictionaryService extends ICloudDictionaryService<DictionaryVO, DictionaryDO> {
 
 }

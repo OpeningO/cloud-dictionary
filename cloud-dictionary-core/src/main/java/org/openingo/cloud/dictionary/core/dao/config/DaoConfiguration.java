@@ -27,9 +27,6 @@
 
 package org.openingo.cloud.dictionary.core.dao.config;
 
-import org.openingo.boot.mybatisplus.config.TimeFillMetaObjectHandler;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 

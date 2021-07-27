@@ -32,8 +32,6 @@ import org.openingo.boot.mybatisplus.config.TimeFillMetaObjectHandler;
 import org.openingo.jdkits.hash.HashKit;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 /**
  * CloudDictionaryMetaObjectHandler
  *

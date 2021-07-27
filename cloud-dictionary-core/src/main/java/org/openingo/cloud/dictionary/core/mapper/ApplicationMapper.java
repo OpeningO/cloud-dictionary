@@ -1,8 +1,8 @@
 package org.openingo.cloud.dictionary.core.mapper;
 
-import org.openingo.cloud.dictionary.core.entity.ApplicationDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.openingo.cloud.dictionary.core.entity.ApplicationDO;
 
 /**
  * <p>

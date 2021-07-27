@@ -25,38 +25,27 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.core.converter;
+package org.openingo.cloud.dictionary.core.service.base;
 
-import com.google.common.base.Converter;
-import org.openingo.cloud.dictionary.core.entity.ApplicationDO;
-import org.openingo.cloud.dictionary.vo.ApplicationVO;
-import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.stereotype.Component;
+import org.openingo.boot.mybatisplus.service.IBaseService;
+import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
+import org.openingo.java.lang.ThreadLocalKit;
 
 /**
- * ApplicationConverter
+ * IBaseService
  *
  * @author Qicz
- * @since 2021/7/26 14:37
+ * @since 2021/7/26 15:35
  */
-@Component
-public class ApplicationConverter extends Converter<ApplicationVO, ApplicationDO> {
+public interface ICloudDictionaryService<VO, DO extends BaseDO<DO>> extends IBaseService<VO, DO> {
 
-	private BeanCopier forwardCopier = BeanCopier.create(ApplicationVO.class, ApplicationDO.class, false);
-
-	private BeanCopier backwardCopier = BeanCopier.create(ApplicationDO.class, ApplicationVO.class, false);
-
+	/**
+	 * put之后的工作
+	 * @param vo 某对象vo
+	 * @param aDo 某对象do
+	 */
 	@Override
-	protected ApplicationDO doForward(ApplicationVO applicationVO) {
-		final ApplicationDO applicationDO = new ApplicationDO();
-		this.forwardCopier.copy(applicationVO, applicationDO, null);
-		return applicationDO;
-	}
-
-	@Override
-	protected ApplicationVO doBackward(ApplicationDO applicationDO) {
-		final ApplicationVO applicationVO = new ApplicationVO();
-		this.backwardCopier.copy(applicationDO, applicationVO, null);
-		return applicationVO;
+	default void afterPut(VO vo, DO aDo) {
+		ThreadLocalKit.put(aDo);
 	}
 }

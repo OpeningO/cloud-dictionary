@@ -25,13 +25,27 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.api;
+package org.openingo.cloud.dictionary.controller;
+
+import io.swagger.annotations.Api;
+import org.openingo.cloud.dictionary.controller.base.AbstractController;
+import org.openingo.cloud.dictionary.core.service.IBusinessService;
+import org.openingo.cloud.dictionary.vo.BusinessVO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * IDictionary
+ * BusinessController
  *
  * @author Qicz
- * @since 2021/7/26 14:15
+ * @since 2021/7/27 13:35
  */
-public interface IDictionary {
+@RestController
+@Api(tags = "业务接入")
+@RequestMapping("business")
+public class BusinessController extends AbstractController<BusinessVO, IBusinessService> {
+
+	public BusinessController(IBusinessService businessService) {
+		super(businessService);
+	}
 }

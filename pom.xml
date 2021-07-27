@@ -52,11 +52,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mybatis-x.version>3.0.1</mybatis-x.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.openingo.kits</groupId>
+                <artifactId>jdkits</artifactId>
+                <version>3.7.1</version> </dependency>
             <dependency>
                 <groupId>org.openingo</groupId>
                 <artifactId>cloud-dictionary-api</artifactId>

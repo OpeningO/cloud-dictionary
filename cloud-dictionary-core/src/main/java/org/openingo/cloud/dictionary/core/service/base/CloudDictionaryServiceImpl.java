@@ -25,13 +25,22 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.api;
+package org.openingo.cloud.dictionary.core.service.base;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.openingo.boot.mybatisplus.service.BaseServiceImpl;
+import org.openingo.spring.boot.extension.helper.BeanAccessor;
+
+import javax.annotation.Resource;
 
 /**
- * IDictionaryProperty
+ * CloudDictionaryBaseServiceImpl
  *
  * @author Qicz
- * @since 2021/7/26 14:16
+ * @since 2021/7/26 15:37
  */
-public interface IDictionaryProperty {
+public class CloudDictionaryServiceImpl<VO, DO, MAPPER extends BaseMapper<DO>> extends BaseServiceImpl<VO, DO, MAPPER> {
+
+	@Resource
+	protected BeanAccessor beanAccessor;
 }

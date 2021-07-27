@@ -1,14 +1,10 @@
 package org.openingo.cloud.dictionary.core.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
-import org.openingo.boot.mybatisplus.extension.ModelX;
+import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
 import org.openingo.cloud.dictionary.enums.DictionaryTypeEnum;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -20,14 +16,8 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("t_dictionary")
-public class DictionaryDO extends ModelX<DictionaryDO> {
-
-    private static final long serialVersionUID=1L;
-    
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+@TableName(value = "t_dictionary", autoResultMap = true)
+public class DictionaryDO extends BaseDO<DictionaryDO> {
 
     /**
      * 应用id
@@ -50,36 +40,7 @@ public class DictionaryDO extends ModelX<DictionaryDO> {
     private String businessCode;
 
     /**
-     * 名称
-     */
-    private String name;
-
-    /**
-     * 编码
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private String code;
-
-    /**
      * 类型，1=dictionary，2=tag
      */
     private DictionaryTypeEnum type;
-
-    /**
-     * 扩展信息
-     */
-    private String extra;
-
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
-
-
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-
 }

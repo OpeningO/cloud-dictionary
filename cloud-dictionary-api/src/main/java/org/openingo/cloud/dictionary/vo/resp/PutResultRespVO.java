@@ -25,23 +25,27 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.core.service.impl;
+package org.openingo.cloud.dictionary.vo.resp;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.openingo.spring.boot.extension.helper.BeanAccessor;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
-import javax.annotation.Resource;
+import java.io.Serializable;
 
 /**
- * BaseServiceImpl
+ * PutResultRespVO
  *
  * @author Qicz
- * @since 2021/7/26 15:37
+ * @since 2021/7/27 16:12
  */
-public class BaseServiceImpl<VO, DO, MAPPER extends BaseMapper<DO>> extends ServiceImpl<MAPPER, DO> {
+@Data
+@ApiModel(description = "PUT返回信息")
+public class PutResultRespVO implements Serializable {
 
-	@Resource
-	protected BeanAccessor beanAccessor;
+	@ApiModelProperty(value = "id")
+	private Integer id;
 
+	@ApiModelProperty(value = "编码")
+	private String code;
 }

@@ -25,15 +25,27 @@
  * SOFTWARE.
  */
 
-package org.openingo.cloud.dictionary.api;
+package org.openingo.cloud.dictionary.controller;
 
+import io.swagger.annotations.Api;
+import org.openingo.cloud.dictionary.controller.base.AbstractController;
+import org.openingo.cloud.dictionary.core.service.IApplicationService;
 import org.openingo.cloud.dictionary.vo.ApplicationVO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * IApplication
+ * ApplicationController
  *
  * @author Qicz
- * @since 2021/7/21 10:09
+ * @since 2021/7/27 10:24
  */
-public interface IApplication extends BaseApi<ApplicationVO> {
+@RestController
+@Api(tags = "应用接入")
+@RequestMapping("application")
+public class ApplicationController extends AbstractController<ApplicationVO, IApplicationService> {
+
+	public ApplicationController(IApplicationService applicationService) {
+		super(applicationService);
+	}
 }
