@@ -63,9 +63,9 @@ public abstract class AbstractController<VO, Service extends ICloudDictionarySer
 	@ApiOperation(value = "新增或更新")
 	public PutResultRespVO put(@RequestBody @Validated VO vo) {
 		final boolean putRet = this.service.put(vo);
-		final BaseDO<?> baseDO = ThreadLocalKit.getRemove();
-		log.info("put result {} data {}", putRet, baseDO);
-		return BeanKit.copy(baseDO, PutResultRespVO.class);
+		final PutResultRespVO afterPut = this.service.getAfterPut();
+		log.info("put result {} data {}", putRet, afterPut);
+		return afterPut;
 	}
 
 	@GetMapping("list")

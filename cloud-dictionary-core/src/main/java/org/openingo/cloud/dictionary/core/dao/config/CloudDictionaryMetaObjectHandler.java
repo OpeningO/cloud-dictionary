@@ -47,7 +47,7 @@ public class CloudDictionaryMetaObjectHandler extends TimeFillMetaObjectHandler 
 
 		boolean hasCode = metaObject.hasGetter("code");
 		if (hasCode) {
-			metaObject.setValue("code", HashKit.generateSalt(100));
+			metaObject.setValue("code", HashKit.generateSalt(50));
 		}
 	}
 }

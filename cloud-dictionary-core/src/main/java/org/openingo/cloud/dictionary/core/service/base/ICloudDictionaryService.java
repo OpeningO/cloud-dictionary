@@ -29,7 +29,9 @@ package org.openingo.cloud.dictionary.core.service.base;
 
 import org.openingo.boot.mybatisplus.service.IBaseService;
 import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
+import org.openingo.cloud.dictionary.vo.resp.PutResultRespVO;
 import org.openingo.java.lang.ThreadLocalKit;
+import org.openingo.jdkits.lang.BeanKit;
 
 /**
  * IBaseService
@@ -37,7 +39,7 @@ import org.openingo.java.lang.ThreadLocalKit;
  * @author Qicz
  * @since 2021/7/26 15:35
  */
-public interface ICloudDictionaryService<VO, DO extends BaseDO<DO>> extends IBaseService<VO, DO> {
+public interface ICloudDictionaryService<VO, DO extends BaseDO<DO>> extends IBaseService<VO, DO, PutResultRespVO> {
 
 	/**
 	 * put之后的工作
@@ -47,5 +49,16 @@ public interface ICloudDictionaryService<VO, DO extends BaseDO<DO>> extends IBas
 	@Override
 	default void afterPut(VO vo, DO aDo) {
 		ThreadLocalKit.put(aDo);
+	}
+
+	/**
+	 * 获取afterPut放的数据
+	 *
+	 * @return afterPut放入的数据
+	 */
+	@Override
+	default PutResultRespVO getAfterPut() {
+		final DO aDo = ThreadLocalKit.getRemove();
+		return BeanKit.copy(aDo, PutResultRespVO.class);
 	}
 }
