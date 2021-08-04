@@ -32,8 +32,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
 import org.openingo.cloud.dictionary.core.service.base.ICloudDictionaryService;
 import org.openingo.cloud.dictionary.vo.resp.PutResultRespVO;
-import org.openingo.java.lang.ThreadLocalKit;
-import org.openingo.jdkits.lang.BeanKit;
 import org.openingo.spring.boot.extension.http.response.annotation.AutoMappingRespResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

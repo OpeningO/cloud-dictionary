@@ -3,6 +3,7 @@ package org.openingo.cloud.dictionary.core.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
 
 /**
@@ -14,6 +15,7 @@ import org.openingo.cloud.dictionary.core.entity.base.BaseDO;
  * @since 2021-07-21
  */
 @Data
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @TableName(value = "t_dictionary_property", autoResultMap = true)
 public class DictionaryPropertyDO extends BaseDO<DictionaryPropertyDO> {
